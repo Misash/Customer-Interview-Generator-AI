@@ -21,11 +21,11 @@ user_interests = st.sidebar.text_input(label=f"Interests:",max_chars=100).strip(
 
 
 
-user_habits = st.text_area(label=f"What behaviours/habits has {user_name}?",max_chars=300).strip()
+user_habits = st.text_area(label=f"What behaviours/habits does your customer have?",max_chars=300).strip()
 
-user_needs = st.text_area(label=f"What Needs/Goals has {user_name}?",max_chars=300).strip()
+user_needs = st.text_area(label=f"What Needs/Goals does your customer have?",max_chars=300).strip()
 
-user_hypothesis = st.text_area(label=f"Type your Hypothesis about your customer ",max_chars=500).strip()
+user_hypothesis = st.text_area(label=f"Type your hypothesis about your customer ",max_chars=500).strip()
 
 
 
