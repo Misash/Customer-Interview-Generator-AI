@@ -17,7 +17,7 @@ def generateCustomerInterview(name,
                               behaviors_habits,
                               occupation,
                               maritalStatus,
-                              university,
+                              education_level,
                               interests,
                               needs_goals,
                               hypotheses):
@@ -35,7 +35,7 @@ def generateCustomerInterview(name,
                          'behaviors_habits',
                          'occupation',
                          'maritalStatus',
-                         'university',
+                         'education_level',
                          'interests',
                          'needs_goals',
                          'hypotheses'] ,
@@ -58,7 +58,7 @@ def generateCustomerInterview(name,
                     1.3 Specific Demographics:
                     - Occupation: {occupation}
                     - Marital Status: {maritalStatus}
-                    - Edutacion Level: {university}
+                    - Edutacion Level: {education_level}
                     - interests: {interests}
 
                     1.4 Needs and Goals:
@@ -94,7 +94,7 @@ def generateCustomerInterview(name,
          'behaviors_habits': behaviors_habits,
          'occupation': occupation,
          'maritalStatus': maritalStatus,
-         'university': university,
+         'education_level': education_level,
          'interests': interests,
          'needs_goals': needs_goals,
          'hypotheses':hypotheses 
