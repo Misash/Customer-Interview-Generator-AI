@@ -9,7 +9,7 @@ st.title("Customer Interview Generator")
 
 st.sidebar.markdown("## Customer Information 👥🛍️")
 
-user_name = st.sidebar.text_input(label=f"Name: ",max_chars=7).strip()
+user_name = st.sidebar.text_input(label=f"Name: ",max_chars=10).strip()
 user_age = st.sidebar.selectbox(f"Age: ",("18",'19','20','21','22','23','24','25','26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60'))
 user_gender_pronouns = st.sidebar.selectbox(f"Gender Pronouns: ",("she/her",'he/him','they/them'))
 user_place_origin = st.sidebar.text_input(label=f"Country: ",max_chars=15).strip()

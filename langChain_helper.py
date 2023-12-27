@@ -23,7 +23,7 @@ def generateCustomerInterview(name,
                               hypotheses):
 
     #temperature how creative the model will be 
-    llm = OpenAI(temperature=0.7)
+    llm = OpenAI(temperature=0.5)
 
 
     #prompt templates
@@ -39,48 +39,30 @@ def generateCustomerInterview(name,
                          'interests',
                          'needs_goals',
                          'hypotheses'] ,
-        template=""" Ignore the previous instructions.
 
-                    I'd like you to provide an example of an interview with a customer, based on the teachings of the book "The Mom Test" by Rob Fitzpatrick.
-                    To do this, I'll give you the details of the target customer and the customer Hypotheses.
+        template = """Based on "The Mom Test" by Rob Fitzpatrick, create a simulated interview with a customer using the provided details. Build a character profile and formulate questions to test the given hypotheses. Ensure the dialogue is realistic and analyze responses according to "The Mom Test."
+            Customer Details:
+            - Name: {name}
+            - Age: {age}
+            - Pronouns: {pronouns}
+            - Origin: {originPlace}
+            - Habits: {behaviors_habits}
+            - Occupation: {occupation}
+            - Marital Status: {maritalStatus}
+            - Education: {education_level}
+            - Interests: {interests}
+            - Needs/Goals: {needs_goals}
 
-                    1. Customer Information:
+            Hypotheses: {hypotheses}
 
-                    1.1 Representation and General Demographic Information:
-                    - Name: {name}
-                    - Age: {age}
-                    - Gender Pronouns: {pronouns}
-                    - Place of Origin: {originPlace}
+            Chat Format:
+            - Interviewer (I)
+            - Customer (C)
+            - Analysis
 
-                    1.2 Behavior/Habits:
-                    {behaviors_habits}
-
-                    1.3 Specific Demographics:
-                    - Occupation: {occupation}
-                    - Marital Status: {maritalStatus}
-                    - Edutacion Level: {education_level}
-                    - interests: {interests}
-
-                    1.4 Needs and Goals:
-                    {needs_goals}
-
-                    2. Hypotheses:
-                    {hypotheses}
-
-                    3. Instructions:
-
-                    3.1.Create a character based on the customer data. Add additional random information to better construct the customer.
-                    3.2. Analyze the hypotheses for the interviews, with the aim of creating questions that help discover if the hypotheses are true, based on "The Mom Test" book.
-                    3.3. Create very natural an real, with random scenarios that allow the interviewer to discover, validate, or refute the hypotheses, leading to the creation of new questions and attempts to identify customer behavior patterns, all based on the "The Mom Test" book by Rob Fitzpatrick.
-                    3.4. Provide the questions and user responses, with analysis based on "The Mom Test." Analyze both the questions and the customer's responses.
-                    3.5. Present this simulation in a chat format, just indicating who the interviewer is, also who the customer is, and finally providing analysis for each interaction. No add more information just the chat remember.
-                    3.6 Follow this structure for the chat: 
-                    -Interviewer(I):
-                    -Customer(C):
-                    -Analysis: 
-                    3.7. repeat step 3.5 until get feedback from all hyphoteses.
-
-                    Please write in English language."""
+            Construct the conversation to explore each hypothesis, providing analysis after each exchange.
+            Focus on natural interaction and insightful questioning.
+            """
     )
 
 
@@ -100,27 +82,25 @@ def generateCustomerInterview(name,
          'hypotheses':hypotheses 
          })
 
-    #responses
-    # {'animal_type': 'horse', 'pet_color': 'black', 'text': '\n\n1. Midnight\n2. Shadow\n3. Raven\n4. Eclipse\n5. Coal'}
-    # {'animal_type': 'horse', 'pet_color': 'black', 'pet_names': '\n\n1. Shadow\n2. Midnight\n3. Jet\n4. Raven\n5. Onyx'}
 
     return response 
 
 
- 
+# example
 if __name__ == "__main__" :
-    output = generateCustomerInterview('Hiroshi',
-                                    '24',
-                                    'he/him',
-                                    'japan',
-                                    'A fan of the character Sakura from the anime Naruto. Runs generative AI image models like "Stable Diffusion" on platforms like CivitAI.Seeks anime character models for experimentation and obtaining unique images.',
-                                    'University student majoring in graphic design',
-                                    'Single',
-                                    'University',
-                                    'Anime, AI, and generative image AI "Stable Diffusion"',
-                                    'Needs unique images of the Sakura character that the industry or community hasn\'t created. Aims to sell the unique images to other fans.',
-                                    "1. The customer wants to train Stable Diffusion models because they want to generate NSFW images for adult entertainment. 2. The customer is willing to pay $10 to $80 per AI model. 3.The customer is a user of websites like CivitAi, pixel.art, and other Stable Diffusion communities. 4.The customer is a fan of hentai. 5.The customer only wants Stable Diffusion models because they're in love with their anime character and wants SFW images."
-                                    )['interview']
+    output = generateCustomerInterview('Alexandra',
+                                   '30',
+                                   'she/her',
+                                   'Spain',
+                                   'Passionate about sustainable living and eco-friendly technologies. Regularly participates in community gardening projects. Interested in apps that promote environmental awareness.',
+                                   'Environmental consultant',
+                                   'Married',
+                                   'Master’s degree in Environmental Science',
+                                   'Sustainable living, technology for environmental conservation, and community gardening',
+                                   'Looking for innovative tech solutions to reduce carbon footprint both personally and in her community. Interested in apps that can help track and improve sustainable habits.',
+                                   "1. The customer is actively seeking apps that help reduce waste and promote recycling. 2. Willing to invest in high-quality environmental apps, with a budget up to $50 per app. 3. Prefers user-friendly interfaces with community-sharing features. 4. Is a member of online forums discussing sustainability. 5. Shows interest in integrating technology with daily eco-friendly practices."
+                                   )['interview']
+
     print(output)
   
 
